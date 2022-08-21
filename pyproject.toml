@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "prefect-shared"
+version = "2.1.1-py3.10"
+description = ""
+authors = ["darrida <darrida.py@gmail.com>"]
+repository = ""
+
+[tool.poetry.dependencies]
+python = "^3.10"
+prefect = "^2.1.1"
+
+[tool.docker]
+registry = ""
+
+[build-system]
+requires = [
+    "poetry-core>=1.0.0",
+]
+build-backend = "poetry.core.masonry.api" 
