@@ -33,7 +33,7 @@ def build():
 
 @cli.command('push')
 def push():
-    cmd = f"docker push {image}")
+    cmd = f"docker push {image}"
     if input(f"Confirm image name: {image} (y/n): ") != 'y':
         print("Docker push canceled.")
         return

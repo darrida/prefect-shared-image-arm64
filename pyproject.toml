@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "prefect-shared"
-version = "2.1.1-py3.10"
+version = "2.1.1"
 description = ""
 authors = ["darrida <darrida.py@gmail.com>"]
 repository = ""
@@ -8,6 +8,11 @@ repository = ""
 [tool.poetry.dependencies]
 python = "^3.10"
 prefect = "^2.1.1"
+tqdm = "^4.0.0"
+pandas = "^1.0.0"
+lxml = "^4.0.0"
+fs = "^2.0.0"
+boto3 = "^1.0.0"
 
 [tool.docker]
 registry = ""
