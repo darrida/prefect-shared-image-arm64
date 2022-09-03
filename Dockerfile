@@ -1,13 +1,23 @@
-# FROM --platform=linux/arm64 prefecthq/prefect:2.1.1-python3.10
-FROM prefecthq/prefect:2.3.1-python3.10
+####################################################################
+# BUILD PACKAGE WHEELS
+FROM --platform=linux/arm64 arm64v8/python:3.10.6-buster as build
+RUN   apt-get update && apt-get upgrade -y --no-install-recommends
 
-RUN apt-get update && apt-get upgrade -y
+WORKDIR /wheels
+RUN pip3 install --upgrade pip
+COPY requirements.txt .
+RUN pip3 wheel -r requirements.txt
 
-RUN pip install --upgrade pip
-RUN pip install poetry
-RUN pip install wheel
-COPY pyproject.toml .
-COPY poetry.lock .
-RUN poetry config virtualenvs.create false
-RUN poetry install --only main
+####################################################################
+# INSTALL DEPENDENCIES
+FROM --platform=linux/arm64 arm64v8/python:3.10.6-slim-buster as application
+RUN   apt-get update && apt-get upgrade -y --no-install-recommends
+COPY --from=build /wheels /wheels
+
+RUN pip3 install --upgrade pip
+RUN pip3 install wheel
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt -f /wheels && \
+    rm -rf wheels && \
+    rm -rf /root/.cache/pip/*
 WORKDIR /src
