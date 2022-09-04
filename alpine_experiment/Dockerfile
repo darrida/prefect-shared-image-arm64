@@ -10,7 +10,7 @@
 ####################################################################
 # BUILD PACKAGE WHEELS
 FROM --platform=linux/arm64 arm64v8/python:3.10-alpine as build
-RUN apk add build-base
+RUN apk add build-base libffi-dev
 
 WORKDIR /wheels
 RUN pip3 install --upgrade pip
