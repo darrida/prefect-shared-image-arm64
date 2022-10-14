@@ -5,6 +5,7 @@ aiosqlite==0.17.0
 alembic==1.8.1
 anyio==3.6.1
 appdirs==1.4.4
+apprise==1.1.0
 asgi-lifespan==1.0.1
 async-timeout==4.0.2
 asyncpg==0.26.0
@@ -30,8 +31,11 @@ google-auth==2.11.0
 greenlet==1.1.3
 griffe==0.21.0
 h11==0.12.0
+h2==4.1.0
+hpack==4.0.0
 httpcore==0.15.0
 httpx==0.23.0
+hyperframe==6.0.1
 idna==3.3
 jmespath==1.0.1
 jsonpatch==1.32
@@ -39,6 +43,7 @@ jsonpointer==2.3
 kubernetes==24.2.0
 lxml==4.9.1
 Mako==1.2.2
+Markdown==3.4.1
 MarkupSafe==2.1.1
 multidict==6.0.2
 numpy==1.23.2
@@ -48,7 +53,8 @@ packaging==21.3
 pandas==1.4.4
 pathspec==0.10.1
 pendulum==2.1.2
-prefect==2.3.1
+prefect==2.6.0
+prefect-aws==0.1.4
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.21
