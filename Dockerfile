@@ -1,6 +1,6 @@
 ####################################################################
 # BUILD PACKAGE WHEELS
-FROM --platform=linux/arm64 arm64v8/python:3.10.6-buster as build
+FROM --platform=linux/arm64 arm64v8/python:3.11-buster as build
 RUN   apt-get update && apt-get upgrade -y --no-install-recommends
 
 WORKDIR /wheels
@@ -10,7 +10,7 @@ RUN pip3 wheel -r requirements.txt
 
 ####################################################################
 # INSTALL DEPENDENCIES
-FROM --platform=linux/arm64 arm64v8/python:3.10.6-slim-buster as application
+FROM --platform=linux/arm64 arm64v8/python:3.11-slim-buster as application
 RUN   apt-get update && apt-get upgrade -y --no-install-recommends
 COPY --from=build /wheels /wheels
 
